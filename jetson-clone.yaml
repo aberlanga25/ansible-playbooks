@@ -1,0 +1,44 @@
+---
+- name: Setup Jetsons
+  hosts: all
+  remote_user: mic-713
+  become: true
+  tasks:
+    - vars_prompt:
+      name: github_token
+      prompt: "Enter your github personal access token?"
+      private: true
+    - name: Add SSH public key to GitHub account
+      ansible.builtin.uri:
+        url: "https://api.github.com/repos/{{ github_account_id }}/{{ repo }}/keys"
+        validate_certs: yes
+        method: POST
+        force_basic_auth: true
+        body:
+          title: "{{ key_title }}"
+          key: "{{ key_content.stdout }}"
+          read_only: true
+        body_format: json
+        headers:
+          Accept: application/vnd.github+json
+          X-GitHub-Api-Version: 2022-11-28
+          Authorization: "Bearer {{ github_access_token }}"
+        status_code:
+        - 201
+        - 422
+      register: create_result
+    - name: Clone the repository
+      shell: |                                                                                                                                   
+        GIT_SSH_COMMAND="ssh -i {{ key_path }} -v -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" {{ git_executable }} clone git@{{ git_server_fqdn }}:{{ github_account_id }}/{{ repo }}.git {{ clone_dest }}
+    - name: Delete SSH public key
+      ansible.builtin.uri:
+        url: "https://api.github.com/repos/{{ github_account_id }}/{{ repo }}/keys/{{ create_result.json.id }}"
+        validate_certs: yes
+        method: DELETE
+        force_basic_auth: true
+        headers:
+          Accept: application/vnd.github+json
+          X-GitHub-Api-Version: 2022-11-28
+          Authorization: "Bearer {{ github_access_token }}"
+        status_code:
+          - 204
