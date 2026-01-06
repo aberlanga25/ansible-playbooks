@@ -3,11 +3,11 @@
   hosts: all
   remote_user: mic-713
   become: true
+  vars_prompt:
+    name: github_token
+    prompt: "Enter your github personal access token?"
+    private: true
   tasks:
-    - vars_prompt:
-      name: github_token
-      prompt: "Enter your github personal access token?"
-      private: true
     - name: Add SSH public key to GitHub account
       ansible.builtin.uri:
         url: "https://api.github.com/repos/{{ github_account_id }}/{{ repo }}/keys"
