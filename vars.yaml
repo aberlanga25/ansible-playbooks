@@ -12,7 +12,7 @@ key_path: ~/.ssh/id_rsa_git
 git_repo: ssh://git@github.com/aberlanga25/yolostrip
 
 # Branch of the git repository (e.g. master)
-#git_branch: <repository branch>
+git_branch: master
 
 # Directory where the repository will be cloned (e.g. /home/user/repo_name)
 clone_dest: /home/mic-713/Detector
@@ -25,3 +25,5 @@ git_executable: git
 
 # Github FQDN
 git_server_fqdn: github.com
+
+github_account_id: aberlanga25
