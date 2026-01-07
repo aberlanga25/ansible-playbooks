@@ -14,7 +14,7 @@ git_repo: ssh://git@github.com/aberlanga25/yolostrip
 repo: yolostrip
 
 # Branch of the git repository (e.g. master)
-git_branch: master
+branch: master
 
 # Directory where the repository will be cloned (e.g. /home/user/repo_name)
 clone_dest: /home/mic-713/Detector

@@ -90,7 +90,7 @@
           GIT_SSH_COMMAND="ssh -i {{ key_path }} -v -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" {{ git_executable }} clone git@{{ git_server_fqdn }}:{{ github_account_id }}/{{ repo }}.git {{ clone_dest }}
 
       - name: Switch branch
-        shell: "{{ git_executable }} checkout {{ branch }}"
+        shell: "{{ git_executable }} checkout {{ host_description }}"
         args:
           chdir: "{{ clone_dest }}"
 
