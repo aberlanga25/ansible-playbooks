@@ -96,7 +96,7 @@
 
       - name: Delete SSH public key
         ansible.builtin.uri:
-          url: "https://api.{{ git_server_fqdn }}/repos/{{ github_account_id }}/{{ repo }}/keys/{{ create_result.json.id }}"
+          url: "https://api.{{ git_server_fqdn }}/repos/{{ github_account_id }}/{{ repo }}/keys/{{ create_result.json[id] }}"
           validate_certs: yes
           method: DELETE
           force_basic_auth: true
