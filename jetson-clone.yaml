@@ -94,6 +94,10 @@
         args:
           chdir: "{{ clone_dest }}"
 
+      - name: Debug create_result
+        debug:
+          var=create_result.json
+
       - name: Delete SSH public key
         ansible.builtin.uri:
           url: "https://api.{{ git_server_fqdn }}/repos/{{ github_account_id }}/{{ repo }}/keys/{{ create_result.json[id] }}"
