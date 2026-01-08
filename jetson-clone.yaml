@@ -89,10 +89,10 @@
         shell: |                                                                                                                                   
           GIT_SSH_COMMAND="ssh -i {{ key_path }} -v -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" {{ git_executable }} clone git@{{ git_server_fqdn }}:{{ github_account_id }}/{{ repo }}.git {{ clone_dest }}
 
-      - name: Switch branch
-        shell: "{{ git_executable }} checkout {{ host_location }}"
-        args:
-          chdir: "{{ clone_dest }}"
+      #- name: Switch branch
+      #  shell: "{{ git_executable }} checkout {{ host_location }}"
+      #  args:
+      #    chdir: "{{ clone_dest }}"
 
       - name: Debug create_result
         debug:
@@ -110,7 +110,43 @@
             Authorization: "Bearer {{ github_access_token }}"
           status_code:
             - 204
+      
+      - name: Copy config
+        ansible.builtin.copy:
+          dest: "/home/mic-713/Detector/config.ini"
+          src: "host_files/{{ host_location }}/config.ini"
+          owner: mic-713
+          group: mic-713
+          mode: "0640"
+      
+      - name: Replace secure server
+        ansible.builtin.replace:
+          path: /home/mic-713/Detector/config.ini
+          regexp: ([^ ]*)https://server.com([^ \.]*)
+          replace: '\1{{ upload_server }}\2'
 
+      - name: Replace usernames
+        ansible.builtin.replace:
+          path: /home/mic-713/Detector/edge.py
+          regexp: ([^ ]*)user([^ \.]*)
+          replace: '\1{{ cam_user }}\2'
+
+      - name: Replace pass
+        ansible.builtin.replace:
+          path: /home/mic-713/Detector/edge.py
+          regexp: ([^ ]*)passwrd([^ \.]*)
+          replace: '\1{{ cam_pass }}\2'
+
+      - name: Copy json
+        ansible.builtin.copy:
+          dest: "/home/mic-713/Detector/"
+          src: "{{ item }}"
+          owner: mic-713
+          group: mic-713
+          mode: "0640"
+        with_fileglob:
+          - "host_files/{{ host_location }}/*.json"
+          
       - name: Create Script File
         ansible.builtin.copy:
           dest: "/home/mic-713/detector.sh"
@@ -122,11 +158,11 @@
           group: mic-713
           mode: '0700'
 
-      - name: Create cronjob
-        ansible.builtin.cron:
-          name: "TTI Truck Detector"
-          minute: "*/5"
-          job: "/home/mic-713/detector.sh"
+      #- name: Create cronjob
+      #  ansible.builtin.cron:
+      #    name: "TTI Truck Detector"
+      #    minute: "*/5"
+      #    job: "/home/mic-713/detector.sh"
 
 
       always:

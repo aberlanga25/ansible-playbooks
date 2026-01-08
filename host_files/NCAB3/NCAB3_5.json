@@ -1,0 +1,62 @@
+[
+    {
+        "id": "18",
+        "loc": "1",
+        "firstX": "256",
+        "firstY": "319",
+        "secondX": "323",
+        "secondY": "340",
+        "thirdX": "337",
+        "thirdY": "244",
+        "fourthX": "283",
+        "fourthY": "243"
+    },
+    {
+        "id": "19",
+        "loc": "1",
+        "firstX": "345",
+        "firstY": "239",
+        "secondX": "410",
+        "secondY": "239",
+        "thirdX": "410",
+        "thirdY": "348",
+        "fourthX": "345",
+        "fourthY": "348"
+    },
+    {
+        "id": "20",
+        "loc":"0",
+        "firstX": "447",
+        "firstY": "263", 
+        "secondX": "510",
+        "secondY": "263",
+        "thirdX": "659",
+        "thirdY": "411",
+        "fourthX": "565",
+        "fourthY": "411"
+    },
+    {
+        "id": "21",
+        "loc":"0",
+        "firstX": "580",
+        "firstY": "310",
+        "secondX": "680",
+        "secondY": "310",
+        "thirdX": "997",
+        "thirdY": "497",
+        "fourthX": "870",
+        "fourthY": "497"
+    },
+    {
+        "id": "22",
+        "loc":"0",
+        "firstX": "1074",
+        "firstY": "540",
+        "secondX": "1217",
+        "secondY": "538",
+        "thirdX": "890",
+        "thirdY": "328",
+        "fourthX": "770",
+        "fourthY": "330"
+    }
+]
