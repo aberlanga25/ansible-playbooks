@@ -111,6 +111,24 @@
           status_code:
             - 204
 
+      - name: Create Script File
+        ansible.builtin.copy:
+          dest: "/home/mic-713/detector.sh"
+          content: |
+              #!/bin/bash
+              cd /home/mic-713/Detector
+              python3 edge.py -c config.ini
+          owner: mic-713
+          group: mic-713
+          mode: '0700'
+
+      - name: Create cronjob
+        ansible.builtin.cron:
+          name: "TTI Truck Detector"
+          minute: "*/5"
+          job: "/home/mic-713/detector.sh"
+
+
       always:
       - name: Kill the ssh-agent
         shell: export pid=`ps -A | grep ssh-agent | awk 'NR==1{print $1}' | cut -d' ' -f1`; kill $pid
