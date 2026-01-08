@@ -146,7 +146,7 @@
           mode: "0640"
         with_fileglob:
           - "host_files/{{ host_location }}/*.json"
-          
+
       - name: Create Script File
         ansible.builtin.copy:
           dest: "/home/mic-713/detector.sh"
@@ -157,6 +157,13 @@
           owner: mic-713
           group: mic-713
           mode: '0700'
+
+      - name: Install pip req
+        ansible.builtin.pip:
+          name:
+            - packaging
+            - tqdm
+            - seaborn
 
       #- name: Create cronjob
       #  ansible.builtin.cron:
