@@ -165,11 +165,11 @@
             - tqdm
             - seaborn
 
-      #- name: Create cronjob
-      #  ansible.builtin.cron:
-      #    name: "TTI Truck Detector"
-      #    minute: "*/5"
-      #    job: "/home/mic-713/detector.sh"
+      - name: Create cronjob
+        ansible.builtin.cron:
+          name: "TTI Truck Detector"
+          minute: "*/5"
+          job: "/home/mic-713/detector.sh"
 
 
       always:

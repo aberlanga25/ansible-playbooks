@@ -1,0 +1,26 @@
+[
+    {
+        "id": "9",
+        "loc": "2",
+        "firstX": "58",
+        "firstY": "710",
+        "secondX": "434",
+        "secondY": "468",
+        "thirdX": "504",
+        "thirdY": "496",
+        "fourthX": "224",
+        "fourthY": "710"
+    },
+    {
+        "id": "10",
+        "loc": "2",
+        "firstX": "510",
+        "firstY": "546",
+        "secondX": "719",
+        "secondY": "379",
+        "thirdX": "786",
+        "thirdY": "384",
+        "fourthX": "701",
+        "fourthY": "500"
+    }
+]

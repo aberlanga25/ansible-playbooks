@@ -1,0 +1,38 @@
+[
+    {
+        "id": "10",
+        "loc": "2",
+        "firstX": "245",
+        "firstY": "699",
+        "secondX": "610",
+        "secondY": "583",
+        "thirdX": "793",
+        "thirdY": "334",
+        "fourthX": "720",
+        "fourthY": "317"
+    },
+    {
+        "id": "11",
+        "loc": "2",
+        "firstX": "797",
+        "firstY": "478",
+        "secondX": "997",
+        "secondY": "234",
+        "thirdX": "1050",
+        "thirdY": "238",
+        "fourthX": "1013",
+        "fourthY": "360"
+    },
+    {
+        "id": "12",
+        "loc": "1",
+        "firstX": "1157",
+        "firstY": "270",
+        "secondX": "1185",
+        "secondY": "163",
+        "thirdX": "1238",
+        "thirdY": "160",
+        "fourthX": "1247",
+        "fourthY": "223"
+    }
+]
