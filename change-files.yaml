@@ -1,0 +1,17 @@
+---
+- hosts: all
+  gather_facts: yes
+  connection: ssh
+  vars_files:
+    - vars.yaml
+
+  tasks:
+    - name: Copy json
+      ansible.builtin.copy:
+        dest: "/home/mic-713/Detector/"
+        src: "{{ item }}"
+        owner: mic-713
+        group: mic-713
+        mode: "0640"
+      with_fileglob:
+        - "host_files/{{ host_location }}/*.json"
