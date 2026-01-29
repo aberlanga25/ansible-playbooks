@@ -1,5 +1,4 @@
-[
-    {
+[{
         "id": "5",
         "loc": "2",
         "firstX": "41",
@@ -49,7 +48,7 @@
     },
     {
         "id": "9",
-        "loc":"0",
+        "loc": "0",
         "firstX": "377",
         "firstY": "354",
         "secondX": "444",
@@ -61,7 +60,7 @@
     },
     {
         "id": "10",
-        "loc":"0",
+        "loc": "0",
         "firstX": "539",
         "firstY": "380",
         "secondX": "656",
@@ -73,14 +72,14 @@
     },
     {
         "id": "11",
-        "loc":"0",
+        "loc": "0",
         "firstX": "768",
         "firstY": "391",
         "secondX": "848",
         "secondY": "382",
-        "thirdX": "1280",
+        "thirdX": "1275",
         "thirdY": "523",
-        "fourthX": "1280",
+        "fourthX": "1275",
         "fourthY": "622"
     }
 
