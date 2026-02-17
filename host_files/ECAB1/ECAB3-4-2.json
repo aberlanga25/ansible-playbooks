@@ -1,5 +1,4 @@
-[
-    {
+[{
         "id": "13",
         "loc": "1",
         "firstX": "131",
@@ -30,8 +29,8 @@
         "firstY": "299",
         "secondX": "643",
         "secondY": "273",
-        "thirdX": "728",
-        "thirdY": "356",
+        "thirdX": "778",
+        "thirdY": "371",
         "fourthX": "640",
         "fourthY": "422"
     }
